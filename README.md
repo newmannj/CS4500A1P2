@@ -7,7 +7,7 @@ The API for an Object is outlined in `object.h`.
 All classes that inherit from Object should override the functions listed below, as they will most likely differ for each class.
 
 UPDATE: 1/30
-To remove issues with different API implementations, we used the object implementation provided by chasebish at https://github.com/chasebish/cwc_object_string
+- To remove issues with different API implementations, we used the object implementation provided by chasebish at https://github.com/chasebish/cwc_object_string
 
 - `equals(Object * other)` -- return whether this Object is equal to other.
 - `hash()` -- compute the hash for this Object
@@ -39,3 +39,7 @@ UPDATE 1/30
 - `size()` -- return the size of the Array
 - `index_of(Object* o)` -- return the index of o (replace Object* with int, float, bool as needed.)
 
+
+## Tests
+---
+The tests can be found in test-array.cpp. If any issues with the tests are found, please submit an issue/pr.
