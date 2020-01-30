@@ -265,7 +265,7 @@ public:
     /**
      * Combines this array and `other` at provided index.
      */
-    virtual void combine(size_t index, IntArray* other) {}
+    virtual void combine(size_t index, BoolArray* other) {}
 
     /**
      * Removes bool at provided index.
