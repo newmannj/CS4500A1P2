@@ -94,11 +94,11 @@ public:
 };
 
 class IntArray : public Object {
-
+public:
 
     IntArray() {}
 
-    ~IntArray() {}
+    virtual ~IntArray() {}
 
     /**
      * Adds `val` to this array.
@@ -169,11 +169,12 @@ class IntArray : public Object {
 };
 
 class FloatArray : public Object {
+public:
 
 
     FloatArray() {}
 
-    ~FloatArray() {}
+    virtual ~FloatArray() {}
 
     /**
      * Adds `val` to this array.
@@ -244,11 +245,12 @@ class FloatArray : public Object {
 };
 
 class BoolArray : public Object {
+public:
 
 
     BoolArray() {}
 
-    ~BoolArray() {}
+    virtual ~BoolArray() {}
 
     /**
      * Adds `val` to this array.
