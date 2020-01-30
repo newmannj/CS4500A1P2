@@ -1,100 +1,184 @@
 #pragma once
 
-// lang::CwC
+#include <cstdlib>
 #include "object.h"
+#include "string.h"
 
-/**
- * Mutable Array API.
- */
+// assuming an array is a java-style arraylist
 class Array : public Object {
-public:
+   public:
 
-    /**
-     * Default Array constructor. Creates a new array.
-     */
+    // constructor
     Array() {}
 
-    /**
-     * Default array desctructor. Free any memory used.
-     */
-    virtual ~Array() {}
+    // destructor
+    ~Array() {}
 
-    /**
-     * Adds the given object `o` to the end of the Array.
-     * Throws an error if `o` is not of same type as rest of the Array
-     */
-    virtual void append(Object* o) {}
+    // putting an item at the end of the array
+    virtual void append(Object* oo) {}
 
-    /**
-     * Inserts the given object `o` at index `index` of the Array.
-     * Throws an error if `index` is out of range.
-     * Throws an error if `o` is not of same type as rest of the Array.
-     */
-    virtual void insert(size_t index, Object* o) {}
+    // get the n'th item in the array
+    Object* get(int nn) {}
 
+    // remove the n'th item in the array
+    // returning the removed item to the caller
+    Object* remove(int nn) {}
 
-    /**
-     * Combines two Arrays by adding all elements of `other` at index `index` of this Array.
-     * Throws an error if `index` is out of range.
-     * Throws an error if `other` is not of same type as this Array.
-     */
-    virtual void combine(size_t index, Array* other) {}
+    // returns the length of the array.
+    virtual int length() {}
 
-    /**
-     * Removes and returns the element at index `index` of the Array.
-     * Throws an error if `index` is out of range.
-     */
-    virtual Object* remove(size_t index) {}
+    // set n'th element to the given object
+    // returns the replace Object.
+    virtual Object* set(int nn, Object* oo) {}
 
-    /**
-     * Removes all elements from this array.
-     */
-    virtual void clear() {}
+    // get the index of an object in the array
+    virtual int index_of(Object* oo) {}
 
-    /**
-     * Returns the element at index `index` of the Array.
-     * Throws an error if `index` is out of range (i.e. 4 in a size 2 Array)
-     * or less than 0.
-     */
-    virtual Object* get(size_t index) {}
+    // Compares other with this array for equality.
+    bool equals(Object* oo) {}
 
-    /**
-     * Returns the index of the given Object `o`.
-     * If it is not found in the Array, return -1
-     */
-    virtual size_t index_of(Object* o) {}
-
-    /**
-     * Returns whether the Array contains the given Object `o`.
-     */
-    virtual bool contains(Object* o) {}
-
-    /**
-     * Sets the element at index `index` of the Array to the given object `o`.
-     * Returns the element that was overwritten.
-     * Throws an error if `index` is out of range (i.e. 4 in a size 2 Array)
-     * or less than 0.
-     * Throws an error if `other` is not of same type as this Array.
-     */
-    virtual Object* set(size_t index, Object* o) {}
-
-    /**
-     * Returns the size of the Array.
-     */
-    virtual size_t size() {}
-
-    /**
-     * Determines whether this Array and the other are equal.
-     * Checks that both Arrays are of same `arr_type`, with same
-     * elements in same order.
-     */
-    virtual bool equals(Object* other) {}
-
-    /**
-     * Generates a hash value based on the elements in the
-     * Array and their associated indices.
-     */
-    virtual size_t compute_hash_() {}
+    size_t hash() {}
+};
 
 
+
+class IntArray : public Array {
+ public:
+
+
+  // constructor
+  IntArray() {}
+
+  // destructor
+  ~IntArray() {}
+
+  void append(Object* oo) {}
+
+  // putting an item at the end of the array
+  void append(int oo) {}
+
+  // get the n'th item in the array
+  int get(int nn) {}
+
+  // remove the n'th item in the array
+  // returning the removed item to the caller
+  int remove(int nn) {}
+
+  Object* set(int nn, Object* oo) {}
+
+  // set n'th element to the given element
+  // returns the replace Object.
+  int set(int nn, int oo) {}
+
+  int index_of(Object* oo) {}
+
+  // get the index of an element in the array
+  int index_of(int oo) {}
+
+  // Compares other with this array for equality.
+  bool equals(Object* oo) {}
+
+  size_t hash() {}
+};
+
+class FloatArray : public Array {
+ public:
+
+  // constructor
+  FloatArray() {}
+
+  // destructor
+  ~FloatArray() {}
+
+  void append(Object* oo) {}
+
+  // putting an item at the end of the array
+  void append(float oo) {}
+
+  // get the n'th item in the array
+  float get(int nn) {}
+
+  // remove the n'th item in the array
+  // returning the removed item to the caller
+  float remove(int nn) {}
+
+  Object* set(int nn, Object* oo) {}
+
+  // set n'th element to the given element
+  // returns the replace Object.
+  float set(int nn, float oo) {}
+
+  int index_of(Object* oo) {}
+
+  // get the index of an float in the array
+  int index_of(float oo) {}
+
+  // Compares other with this array for equality.
+  bool equals(Object* oo) {}
+
+  size_t hash() {}
+};
+
+class BoolArray : public Array {
+ public:
+  // constructor
+  BoolArray() {}
+
+  // destructor
+  ~BoolArray() {}
+
+  void append(Object* oo);
+
+  // putting an item at the end of the array
+  void append(bool oo);
+
+  // get the n'th item in the array
+  bool get(int nn);
+
+  // remove the n'th item in the array
+  // returning the removed item to the caller
+  bool remove(int nn);
+
+  Object* set(int nn, Object* oo);
+
+  // set n'th element to the given element
+  // returns the replace Object.
+  bool set(int nn, bool oo);
+
+  int index_of(Object* oo);
+
+  // get the index of an element in the array
+  int index_of(bool oo);
+
+  // Compares other with this array for equality.
+  bool equals(Object* oo);
+
+  size_t hash();
+};
+
+class StringArray : public Array {
+ public:
+
+  // constructor
+  StringArray() {}
+
+  // destructor
+  ~StringArray() {}
+
+  // putting an item at the end of the array
+  void append(Object* oo);
+
+  void append(String* oo);
+
+  String* get(int nn);
+
+  // remove the n'th item in the array
+  // returning the removed item to the caller
+  String* remove(int nn);
+
+  Object* set(int nn, Object* oo);
+
+  // set n'th element to the given object
+  // returns the replace Object.
+  String* set(int nn, String* oo);
 };
