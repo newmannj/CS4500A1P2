@@ -1,46 +1,28 @@
+//lang::CwC
 #pragma once
 
-// lang::CwC
-#include <stdlib.h>
+#include <cstdlib>
 
 /**
- * Object class API
- */
-class Object {
+ * A class that represents the top of the object hierarchy.
+ * author: chasebish */
+class Object
+{
 public:
+    /** CONSTRUCTORS & DESTRUCTORS **/
 
-    /**
-     * Default Object constructor.
-     */
-    Object() {}
+    /* Default Object constructor */
+    Object();
 
-    /**
-     * Default Object destructor.
-     */
-    virtual ~Object() {}
+    /* Default Object destructor, to be overriden by subclasses */
+    virtual ~Object();
 
-    /** 
-     * Return whether this Object is equal to @arg other.
-     */
-    virtual bool equals(Object* other) {}
 
-    /**
-     * Return the hash for this Object.
-     */
-    virtual size_t hash() {}
+    /** VIRTUAL METHODS **/
 
-    /** 
-     * Compute the hash for this Object.
-     */
-    virtual size_t compute_hash_() {}
+    /* Returns whether two objects are equal, to be overriden by subclasses */
+    virtual bool equals(Object* const obj);
 
-    /**
-     * Returns the type of this object as a string.
-     */
-    virtual char* get_type() {}
-
-    /**
-     * Provide a textual representation of this Object.
-     */
-    virtual char* to_string() {}
+    /* Returns an object's hash value. Identical objects should have identical hashes */
+    virtual size_t hash();
 };
