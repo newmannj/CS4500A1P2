@@ -172,7 +172,7 @@ void test_index_of() {
     arr->append(s1);
     arr->append(s2);
 
-    assert(arr->index_of(s2) == 1  && arr->index_of(s3) == -1);
+    assert(arr->index_of(s2) == 1  && arr->index_of(s3) == arr->size());
     delete arr;
     delete s1;
     delete s2;
@@ -364,6 +364,7 @@ void test_index_of_int() {
     assert(ia->index_of(0) == 0);
     ia->append(0);
     assert(ia->index_of(0) == 0);
+    assert(ia->index_of(153) == ia->size());
     delete ia;
 }
 
@@ -497,6 +498,7 @@ void test_index_of_float() {
     assert(fa->index_of(123.1) == 0);
     fa->append(123.1);
     assert(fa->index_of(123.1) == 0);
+    assert(fa->index_of(-24.3) == fa->size());
     delete fa;
 }
 
@@ -632,6 +634,7 @@ void test_index_of_bool() {
     assert(ba->index_of(true) == 0);
     ba->append(true);
     assert(ba->index_of(true) == 0);
+    assert(ba->index_of(false) == ba->size());
     delete ba;
 }
 
